@@ -254,16 +254,7 @@ Login as Admin → Access Dashboard → Manage Rooms/Users → View Statistics
 
 ---
 
-## 🐛 Known Issues & TODOs
 
-- [ ] Email confirmation for new registrations
-- [ ] Password reset functionality
-- [ ] Cancellation/modification of reservations
-- [ ] Notification system
-- [ ] Payment integration (if needed)
-- [ ] Advanced filtering and search
-- [ ] Export reports (PDF/Excel)
-- [ ] Mobile responsive design optimization
 
 ---
 
