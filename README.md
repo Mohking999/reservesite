@@ -145,12 +145,12 @@ Booking records
 
 4. **Test database connection**
    ```
-   http://localhost/ملفات/test_db.php
+   http://localhost/test_db.php
    ```
 
 5. **Start the application**
    ```
-   http://localhost/ملفات/
+   http://localhost/
    ```
 
 ### Default Test Credentials
