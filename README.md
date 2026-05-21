@@ -270,11 +270,21 @@ Login as Admin → Access Dashboard → Manage Rooms/Users → View Statistics
 ## 📊 Screenshots
 
 Project includes UI preview screenshots in the `asstes/` folder:
-- `Screenshot (27).png` - Login interface
-- `Screenshot (28).png` - Room browsing
-- `Screenshot (30).png` - Reservation form
-- `Screenshot (31).png` - Admin dashboard
-- `Screenshot (32).png` - User profile/reservations
+
+### Login Interface
+![Login Interface](asstes/Screenshot%20(27).png)
+
+### Room Browsing
+![Room Browsing](asstes/Screenshot%20(28).png)
+
+### Reservation Form
+![Reservation Form](asstes/Screenshot%20(30).png)
+
+### Admin Dashboard
+![Admin Dashboard](asstes/Screenshot%20(31).png)
+
+### User Profile & Reservations
+![User Profile](asstes/Screenshot%20(32).png)
 
 ---
 
@@ -327,5 +337,4 @@ This project is provided as-is for educational and development purposes.
 ---
 
 **Built with ❤️ for efficient room management**
-
 
