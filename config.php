@@ -13,10 +13,10 @@ if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.
     $password = "";
 } else {
     // بيئة الإنتاج — ezyro.com
-    $host     = "sql305.ezyro.com";
-    $dbname   = "ezyro_41948910_gestionlesall";
-    $username = "ezyro_41948910";
-    $password = "YOUR_VPANEL_PASSWORD"; // ← ضع كلمة سر الـ vPanel هنا
+    $host     = "db.fr-roub1.bengt.wasmernet.com";
+    $dbname   = "db_bcfa8cd4";
+    $username = "user_ebd3c8a0";
+    $password = "pw_HILTXLHAJLrZGIySCpNfQAKBc68asoqG"; // ← ضع كلمة سر الـ vPanel هنا
 }
 
 // ── الاتصال بقاعدة البيانات ──────────────────────────────────
