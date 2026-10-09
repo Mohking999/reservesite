@@ -12,21 +12,12 @@ if (in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)) {
     $username = "root";
     $password = "";
 } else {
-    // Set these in the deployment environment; never store production credentials in source.
-    $host     = getenv('DB_HOST') ?: '';
-    $portValue = getenv('DB_PORT') ?: '';
-    $dbname   = getenv('DB_NAME') ?: '';
-    $username = getenv('DB_USER') ?: '';
-    $password = getenv('DB_PASSWORD') ?: '';
-    $port     = filter_var($portValue, FILTER_VALIDATE_INT, [
-        'options' => ['min_range' => 1, 'max_range' => 65535],
-    ]);
-
-    if ($host === '' || $dbname === '' || $username === '' || $password === '' || $port === false) {
-        error_log('Database configuration error: set DB_HOST, DB_PORT, DB_NAME, DB_USER, and DB_PASSWORD.');
-        http_response_code(500);
-        die("Une erreur est survenue. Veuillez réessayer plus tard.");
-    }
+    // Production database settings
+    $host     = "db.fr-roub1.bengt.wasmernet.com";
+    $port     = 20184;
+    $dbname   = "db_bcfa8cd4";
+    $username = "user_ebd3c8a0";
+    $password = "pw_HILTXLHAJLrZGIySCpNfQAKBc68asoqG";
 }
 
 // ── الاتصال بقاعدة البيانات ──────────────────────────────────
