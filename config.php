@@ -16,7 +16,7 @@ if (in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)) {
     $host     = "db.fr-roub1.bengt.wasmernet.com";
     $port     = 20184;
     $dbname   = "db_bcfa8cd4";
-    $username = "user_ebd3c8a0";
+    $username = "user_5c0f2be5";
     $password = "pw_HILTXLHAJLrZGIySCpNfQAKBc68asoqG";
 }
 
