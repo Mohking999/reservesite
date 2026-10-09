@@ -15,8 +15,8 @@ if (in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)) {
     // Production database settings
     $host     = "db.fr-roub1.bengt.wasmernet.com";
     $port     = 20184;
-    $dbname   = "db_bcfa8cd4";
-    $username = "user_ebd3c8a0";
+    $dbname   = "gestionlesall";
+    $username = "user_5c0f2be5";
     $password = "pw_HILTXLHAJLrZGIySCpNfQAKBc68asoqG";
 }
 
