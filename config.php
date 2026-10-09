@@ -1,28 +1,38 @@
 <?php
 // ============================================================
-//  config.php — Production ready (ezyro.com)
-//  ⚠️  لا ترفع هذا الملف على GitHub أو أي مكان عام
+//  config.php — database connection settings
 // ============================================================
 
 // ── إعدادات قاعدة البيانات ──────────────────────────────────
-if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1') {
+if (in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)) {
     // بيئة محلية
     $host     = "localhost";
+    $port     = 3306;
     $dbname   = "gestionlesall";
     $username = "root";
     $password = "";
 } else {
-    // بيئة الإنتاج — ezyro.com
-    $host     = "db.fr-roub1.bengt.wasmernet.com";
-    $dbname   = "db_bcfa8cd4";
-    $username = "user_ebd3c8a0";
-    $password = "pw_HILTXLHAJLrZGIySCpNfQAKBc68asoqG"; // ← ضع كلمة سر الـ vPanel هنا
+    // Set these in the deployment environment; never store production credentials in source.
+    $host     = getenv('DB_HOST') ?: '';
+    $portValue = getenv('DB_PORT') ?: '';
+    $dbname   = getenv('DB_NAME') ?: '';
+    $username = getenv('DB_USER') ?: '';
+    $password = getenv('DB_PASSWORD') ?: '';
+    $port     = filter_var($portValue, FILTER_VALIDATE_INT, [
+        'options' => ['min_range' => 1, 'max_range' => 65535],
+    ]);
+
+    if ($host === '' || $dbname === '' || $username === '' || $password === '' || $port === false) {
+        error_log('Database configuration error: set DB_HOST, DB_PORT, DB_NAME, DB_USER, and DB_PASSWORD.');
+        http_response_code(500);
+        die("Une erreur est survenue. Veuillez réessayer plus tard.");
+    }
 }
 
 // ── الاتصال بقاعدة البيانات ──────────────────────────────────
 try {
     $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
         $username,
         $password
     );
@@ -31,7 +41,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,   false);
 } catch (PDOException $e) {
     // في production: لا تعرض تفاصيل الخطأ للمستخدم
-    if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1') {
+    if (in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1'], true)) {
         die("Erreur DB : " . $e->getMessage());
     } else {
         error_log("DB Connection Error: " . $e->getMessage());
